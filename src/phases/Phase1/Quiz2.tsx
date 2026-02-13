@@ -10,8 +10,10 @@ interface Quiz2Props {
 
 const question = {
     text: [
-        "Umutang si Sam kay Sean ng ₱20,000 para sa maliit nilang negosyo. Nang unang lumabas ang utang, nakatakda ang interest rate sa 5% per month. Pero ilang linggo pagkatapos, tumakas si Sam papuntang London para umiwas sa pagbabayad. Nag-post siya ng picture sa social media habang nandun, kaya nahuli siya ng PNP at pinilit na bayaran ang utang.",
-        "Dahil nahulog ang loob ni Sean kay Sam dahil and cute nya , pinababa niya ang interest rate sa 3% per month simula nung nahuli siya. Lumipas ang 2 years (24 months) bago siya tuluyang makabayad."
+        "Sam borrowed ₱20,000 from Sean for a small business. A few weeks after taking the loan, Sam escaped to London to avoid paying him back. For 2 years, Sean had no contact with her.",
+        "One day, Sean accidentally saw Sam’s Instagram account and realized she was in London. He contacted the Philippine National Police (PNP), and they arrested Sam to enforce repayment of her debt.",
+        "After Sam returned to the Philippines, Sean forgave her past mistakes and, because he had secretly yearned for her all along, he fell in love with her. However, she was still required to pay interest on the loan.",
+        "The original interest rate was 5% per month, but after forgiving her, Sean reduced it to 3% per month. Sam is now paying back after 2 years (24 months) of absence."
     ],
     options: [
         "₱34,400",
@@ -49,39 +51,39 @@ export default function Quiz2({ onNext }: Quiz2Props) {
 
     return (
         <>
-            <QuizPaperWrapper title="Question 2">
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                    {/* Left Column: Story */}
-                    <div className="text-gray-700 text-lg leading-relaxed space-y-4">
+            <QuizPaperWrapper title="Question 2" className="w-full max-w-[75vw] font-cabinet">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    {/* Left Column: Story (Wider) */}
+                    <div className="lg:col-span-8 text-gray-700 text-base md:text-lg leading-relaxed space-y-3">
                         {question.text.map((paragraph, index) => (
                             <p key={index}>{paragraph}</p>
                         ))}
-                        <div className="p-4 bg-rose-50 rounded-xl border-l-4 border-rose-400 mt-6 md:mt-10">
-                            <p className="font-semibold text-rose-600 italic text-xl">
+                        <div className="p-3 bg-rose-50 rounded-xl border-l-4 border-rose-400 mt-4 md:mt-6 inline-block">
+                            <p className="font-semibold text-rose-600 italic text-lg">
                                 Magkano ang total na binayaran ni Sam?
                             </p>
                         </div>
                     </div>
 
-                    {/* Right Column: Options & Submit */}
-                    <div className="flex flex-col gap-6 w-full">
-                        <div className="space-y-4">
+                    {/* Right Column: Options & Submit (Narrower) */}
+                    <div className="lg:col-span-4 flex flex-col gap-6 w-full">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {question.options.map((opt, i) => (
                                 <motion.button
                                     key={i}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     onClick={() => setSelected(i)}
-                                    className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-center ${selected === i
+                                    className={`w-full p-3 md:p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-center ${selected === i
                                         ? 'bg-rose-50 text-rose-700 border-rose-500 shadow-md'
                                         : 'bg-white/80 text-gray-600 border-gray-200 hover:border-rose-400'
                                         }`}
                                 >
                                     <span className={`w-8 h-8 shrink-0 rounded-full border-2 flex items-center justify-center mr-4 ${selected === i ? 'border-rose-500 bg-rose-500 text-white' : 'border-gray-400 text-gray-500'
-                                        }`}>
+                                        } text-base md:text-lg`}>
                                         {String.fromCharCode(65 + i)}
                                     </span>
-                                    {opt}
+                                    <span className="text-sm md:text-base">{opt}</span>
                                 </motion.button>
                             ))}
                         </div>
@@ -92,7 +94,7 @@ export default function Quiz2({ onNext }: Quiz2Props) {
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0 }}
-                                    className="text-red-500 text-center font-medium text-lg bg-red-50 p-2 rounded-lg"
+                                    className="text-red-500 text-center font-medium text-base md:text-lg bg-red-50 p-2 rounded-lg"
                                 >
                                     Incorrect! Try calculating again...
                                 </motion.div>
@@ -104,7 +106,7 @@ export default function Quiz2({ onNext }: Quiz2Props) {
                             whileTap={{ scale: 0.95 }}
                             onClick={handleSubmit}
                             disabled={selected === null}
-                            className={`w-full py-4 rounded-xl font-bold text-lg transition-all shadow-md ${selected !== null
+                            className={`w-full py-3 md:py-4 rounded-xl font-bold text-base md:text-lg transition-all shadow-md ${selected !== null
                                 ? 'bg-rose-600 text-white shadow-rose-200 hover:bg-rose-700'
                                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                                 }`}

@@ -5,7 +5,7 @@ import GalleryPage from './phases/Phase2/GalleryPage';
 import CardPage from './phases/Phase3/CardPage';
 
 export default function App() {
-  const [phase, setPhase] = useState(1);
+  const [phase, setPhase] = useState(2);
 
   return (
     <div className="w-full h-screen overflow-hidden bg-black/5 relative">

@@ -1,5 +1,10 @@
 @import "tailwindcss";
 @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,400,300,100,200,900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=telma@100,300,400,500,700,900&display=swap');
+
+.font-telma {
+  font-family: 'Telma', serif;
+}
 
 @layer base {
 

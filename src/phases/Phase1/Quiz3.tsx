@@ -7,7 +7,7 @@ interface Quiz3Props {
 }
 
 const words = [
-    { id: 'word-1', text: 'snac' },
+    { id: 'word-1', text: 'snack' },
     { id: 'word-2', text: 'exercise' },
     { id: 'word-3', text: 'Sean' },
     { id: 'word-4', text: 'sincerely' },
@@ -22,7 +22,7 @@ const CORRECT_ANSWERS: Record<string, string> = {
     'slot-1': 'Samarah Francesca Quililan',
     'slot-2': 'sincerely',
     'slot-3': '3',
-    'slot-4': 'snac',
+    'slot-4': 'snack',
     'slot-5': 'merienda',
     'slot-6': 'promise',
     'slot-7': 'exercise',
@@ -104,7 +104,7 @@ export default function Quiz3({ onNext }: Quiz3Props) {
                 </div>
 
                 {/* The Text with Drop Zones */}
-                <div className="text-base leading-loose text-gray-800 font-medium font-serif p-2 rounded-xl relative z-0">
+                <div className="text-sm md:text-base leading-loose text-gray-800 font-medium font-serif p-2 rounded-xl relative z-0">
                     <p>
                         I, <DropZone id="slot-1" value={filledSlots['slot-1']} />, <DropZone id="slot-2" value={filledSlots['slot-2']} /> promise to take good care of myself starting today.
                     </p>
@@ -163,7 +163,7 @@ function DropZone({ id, value }: { id: string, value?: string }) {
     return (
         <span
             id={id}
-            className={`drop-zone inline-flex items-center justify-center min-w-[100px] h-[40px] border-b-2 mx-1 px-2 align-middle transition-colors rounded-t-md text-center ${value
+            className={`drop-zone inline-flex items-center justify-center min-w-[80px] md:min-w-[100px] h-[40px] border-b-2 mx-1 px-2 align-middle transition-colors rounded-t-md text-center text-sm md:text-base ${value
                 ? 'border-rose-500 bg-rose-50 text-rose-700 font-bold'
                 : 'border-gray-300 bg-gray-50'
                 }`}

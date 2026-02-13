@@ -20,7 +20,7 @@ export default function QuizPage({ onComplete }: QuizPageProps) {
     };
 
     return (
-        <div className="min-h-screen bg-rose-50 flex flex-col items-center justify-center p-4 overflow-hidden relative">
+        <div className="min-h-screen bg-rose-50 flex flex-col items-center justify-center p-6 md:p-10 relative overflow-y-auto overflow-x-hidden">
             <HeartsBackground />
 
             <AnimatePresence mode='wait'>
@@ -44,7 +44,7 @@ export default function QuizPage({ onComplete }: QuizPageProps) {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -50 }}
                         transition={{ duration: 0.5 }}
-                        className="w-full max-w-4xl z-10"
+                        className="w-full z-10"
                     >
                         <Quiz2 onNext={handleNext} />
                     </motion.div>
@@ -64,17 +64,7 @@ export default function QuizPage({ onComplete }: QuizPageProps) {
                 )}
             </AnimatePresence>
 
-            {/* Progress Dots */}
-            <div className="flex space-x-2 mt-8 z-10">
-                {[1, 2, 3].map((step) => (
-                    <div
-                        key={step}
-                        className={`w-3 h-3 rounded-full transition-colors duration-300 ${step === currentStep ? 'bg-rose-500 scale-125' :
-                            step < currentStep ? 'bg-rose-300' : 'bg-gray-300'
-                            }`}
-                    />
-                ))}
-            </div>
+
         </div>
     );
 }

@@ -47,25 +47,25 @@ export default function Quiz1({ onNext }: Quiz1Props) {
     return (
         <>
             <QuizPaperWrapper title="Question 1" className="font-cabinet">
-                <p className="text-xl text-gray-700 mb-8 text-center font-medium">{question.text}</p>
+                <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8 text-center font-medium">{question.text}</p>
 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                     {question.options.map((opt, i) => (
                         <motion.button
                             key={i}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             onClick={() => setSelected(i)}
-                            className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-center ${selected === i
+                            className={`w-full p-3 md:p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-center ${selected === i
                                 ? 'bg-rose-50 text-rose-700 border-rose-500 shadow-md'
                                 : 'bg-white/80 text-gray-600 border-gray-200 hover:border-rose-400'
                                 }`}
                         >
-                            <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center mr-4 font-cabinet-extrabold text-lg ${selected === i ? 'border-rose-500 bg-rose-500 text-white' : 'border-gray-400 text-gray-500'
+                            <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center mr-4 font-cabinet-extrabold text-base md:text-lg shrink-0 ${selected === i ? 'border-rose-500 bg-rose-500 text-white' : 'border-gray-400 text-gray-500'
                                 }`}>
                                 {String.fromCharCode(65 + i)}
                             </span>
-                            {opt}
+                            <span className="text-sm md:text-base">{opt}</span>
                         </motion.button>
                     ))}
                 </div>
@@ -76,7 +76,7 @@ export default function Quiz1({ onNext }: Quiz1Props) {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0 }}
-                            className="text-red-500 text-center mb-4 font-medium"
+                            className="text-red-500 text-center mb-4 font-medium text-sm md:text-base"
                         >
                             Incorrect answer! Try remembering the exact time...
                         </motion.div>
@@ -88,7 +88,7 @@ export default function Quiz1({ onNext }: Quiz1Props) {
                     whileTap={{ scale: 0.95 }}
                     onClick={handleSubmit}
                     disabled={selected === null}
-                    className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${selected !== null
+                    className={`w-full py-3 md:py-4 rounded-xl font-bold text-base md:text-lg transition-all ${selected !== null
                         ? 'bg-rose-600 text-white shadow-lg shadow-rose-200'
                         : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                         }`}
