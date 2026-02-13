@@ -1,32 +1,50 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Frame from './imports/Frame1';
-import Cover from './components/Cover';
+import { AnimatePresence, motion } from 'framer-motion';
+import QuizPage from './phases/Phase1/QuizPage';
+import GalleryPage from './phases/Phase2/GalleryPage';
+import CardPage from './phases/Phase3/CardPage';
 
 export default function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [phase, setPhase] = useState(1);
 
   return (
-    <div className="bg-[#f5f5f5] flex items-center justify-center overflow-hidden"
-      style={{ width: '100vw', height: '100vh', perspective: '1500px' }}>
+    <div className="w-full h-screen overflow-hidden bg-black/5 relative">
+      <AnimatePresence mode="wait">
+        {phase === 1 && (
+          <motion.div
+            key="phase1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, x: -100 }}
+            className="w-full h-full"
+          >
+            <QuizPage onComplete={() => setPhase(2)} />
+          </motion.div>
+        )}
 
-      <motion.div
-        className="relative w-[1480px] h-[1000px] flex-none"
-        animate={isOpen ? { y: 0, rotate: 0 } : { y: [0, -20, 0], rotate: [0, 1, -1, 0] }}
-        transition={isOpen ? { duration: 0.5 } : {
-          duration: 3,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatType: "mirror"
-        }}
-      >
-        {/* Base Layer: The "Back Panel" with Characters and Content */}
-        {/* The Frame contains the characters perched on top and the inner text */}
-        <div className="relative z-0">
-          <Frame isOpen={isOpen} />
-        </div>
-        <Cover isOpen={isOpen} setIsOpen={setIsOpen} />
-      </motion.div>
+        {phase === 2 && (
+          <motion.div
+            key="phase2"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="w-full h-full"
+          >
+            <GalleryPage onNext={() => setPhase(3)} />
+          </motion.div>
+        )}
+
+        {phase === 3 && (
+          <motion.div
+            key="phase3"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-full h-full flex items-center justify-center bg-[#f5f5f5]"
+          >
+            <CardPage />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

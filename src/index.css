@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,400,300,100,200,900&display=swap');
 
 @layer base {
 
@@ -8,4 +9,81 @@
     width: 100%;
     height: 100%;
   }
+}
+
+/**
+* @license
+*
+* Font Family: Cabinet Grotesk
+* Designed by: ITF
+* URL: https://www.fontshare.com/fonts/cabinet-grotesk
+* © 2026 Indian Type Foundry
+*
+* Cabinet Grotesk Thin 
+* Cabinet Grotesk Extralight 
+* Cabinet Grotesk Light 
+* Cabinet Grotesk Regular 
+* Cabinet Grotesk Medium 
+* Cabinet Grotesk Bold 
+* Cabinet Grotesk Extrabold 
+* Cabinet Grotesk Black 
+* Cabinet Grotesk Variable (Variable font)
+*/
+
+@font-face {
+  font-family: 'CabinetGrotesk-Variable';
+  src: url('../fonts/CabinetGrotesk-Variable.woff2') format('woff2'),
+    url('../fonts/CabinetGrotesk-Variable.woff') format('woff'),
+    url('../fonts/CabinetGrotesk-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Fallback classes using the CDN or variable font if available locally */
+.font-cabinet {
+  font-family: 'Cabinet Grotesk', 'CabinetGrotesk-Variable', sans-serif;
+  font-variation-settings: "wght" 700;
+  /* Default weight */
+}
+
+/* Helper for specific weights if using the variable font explicitly */
+.font-cabinet-thin {
+  font-family: 'CabinetGrotesk-Thin', 'Cabinet Grotesk', sans-serif;
+  font-weight: 100;
+}
+
+.font-cabinet-extralight {
+  font-family: 'CabinetGrotesk-Extralight', 'Cabinet Grotesk', sans-serif;
+  font-weight: 200;
+}
+
+.font-cabinet-light {
+  font-family: 'CabinetGrotesk-Light', 'Cabinet Grotesk', sans-serif;
+  font-weight: 300;
+}
+
+.font-cabinet-regular {
+  font-family: 'CabinetGrotesk-Regular', 'Cabinet Grotesk', sans-serif;
+  font-weight: 400;
+}
+
+.font-cabinet-medium {
+  font-family: 'CabinetGrotesk-Medium', 'Cabinet Grotesk', sans-serif;
+  font-weight: 500;
+}
+
+.font-cabinet-bold {
+  font-family: 'CabinetGrotesk-Bold', 'Cabinet Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+.font-cabinet-extrabold {
+  font-family: 'CabinetGrotesk-Extrabold', 'Cabinet Grotesk', sans-serif;
+  font-weight: 800;
+}
+
+.font-cabinet-black {
+  font-family: 'CabinetGrotesk-Black', 'Cabinet Grotesk', sans-serif;
+  font-weight: 900;
 }
