@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import svgPaths from "./svg-anr1w6mmgm";
 import imgKurumiRemovebgPreview1 from "figma:asset/f13ac2087af26364f191382c9e7e6523c8376c9b.png";
 import imgHellokittyRemovebgPreview1 from "figma:asset/926c0c76ee0ece8bfb9fd2e8e9cbfaa25d07d82c.png";
@@ -29,9 +30,39 @@ function Component({ className }: { className?: string }) {
   );
 }
 
-export default function Frame() {
+export default function Frame({ isOpen }: { isOpen?: boolean }) {
   return (
-    <div className="bg-white relative size-full">
+    <div className="relative size-full">
+      {/* Characters - Rendered first so they are behind the card content */}
+      <motion.div
+        className="absolute h-[105px] left-[586px] top-[203px] w-[104px]"
+        data-name="kurumi-removebg-preview 1"
+        initial={{ y: 100 }}
+        animate={{ y: isOpen ? 0 : 100 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgKurumiRemovebgPreview1} />
+      </motion.div>
+      <motion.div
+        className="absolute left-[686px] size-[125px] top-[201px]"
+        data-name="hellokitty-removebg-preview 1"
+        initial={{ y: 100 }}
+        animate={{ y: isOpen ? 0 : 100 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgHellokittyRemovebgPreview1} />
+      </motion.div>
+      <motion.div
+        className="absolute h-[115px] left-[790px] top-[180px] w-[124px]"
+        data-name="Screenshot_2026-02-10_114958-removebg-preview 1"
+        initial={{ y: 100 }}
+        animate={{ y: isOpen ? 0 : 100 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgScreenshot20260210114958RemovebgPreview1} />
+      </motion.div>
+
+      {/* Main Card Content */}
       <div className="absolute bg-white border border-black border-solid h-[460px] left-[573px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] top-[286px] w-[332px]" />
       <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[741.5px] not-italic text-[36px] text-black text-center top-[349px] w-[273px] whitespace-pre-wrap">Valentine’s Soirée</p>
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal h-[13px] leading-[normal] left-[634px] not-italic text-[15px] text-black top-[515px] w-[181px] whitespace-pre-wrap">{`February `}</p>
@@ -47,15 +78,6 @@ export default function Frame() {
             <path d={svgPaths.p1ca23f00} id="Vector 1" stroke="var(--stroke-0, white)" strokeLinecap="round" strokeWidth="2" />
           </svg>
         </div>
-      </div>
-      <div className="absolute h-[105px] left-[586px] top-[203px] w-[104px]" data-name="kurumi-removebg-preview 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgKurumiRemovebgPreview1} />
-      </div>
-      <div className="absolute left-[686px] size-[125px] top-[201px]" data-name="hellokitty-removebg-preview 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgHellokittyRemovebgPreview1} />
-      </div>
-      <div className="absolute h-[115px] left-[790px] top-[180px] w-[124px]" data-name="Screenshot_2026-02-10_114958-removebg-preview 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgScreenshot20260210114958RemovebgPreview1} />
       </div>
     </div>
   );
