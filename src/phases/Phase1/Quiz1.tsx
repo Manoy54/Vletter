@@ -47,7 +47,7 @@ export default function Quiz1({ onNext }: Quiz1Props) {
     return (
         <>
             <QuizPaperWrapper title="Question 1" className="font-cabinet">
-                <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8 text-center font-medium">{question.text}</p>
+                <p className="text-xl md:text-2xl text-gray-700 mb-6 md:mb-8 text-center font-bold">{question.text}</p>
 
                 <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                     {question.options.map((opt, i) => (
@@ -61,11 +61,11 @@ export default function Quiz1({ onNext }: Quiz1Props) {
                                 : 'bg-white/80 text-gray-600 border-gray-200 hover:border-rose-400'
                                 }`}
                         >
-                            <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center mr-4 font-cabinet-extrabold text-base md:text-lg shrink-0 ${selected === i ? 'border-rose-500 bg-rose-500 text-white' : 'border-gray-400 text-gray-500'
+                            <span className={`w-10 h-10 rounded-full border-2 flex items-center justify-center mr-4 font-cabinet-extrabold text-lg md:text-xl shrink-0 ${selected === i ? 'border-rose-500 bg-rose-500 text-white' : 'border-gray-400 text-gray-500'
                                 }`}>
                                 {String.fromCharCode(65 + i)}
                             </span>
-                            <span className="text-sm md:text-base">{opt}</span>
+                            <span className="text-base md:text-lg font-semibold">{opt}</span>
                         </motion.button>
                     ))}
                 </div>

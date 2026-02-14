@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
+import AnimatedRose from './AnimatedRose';
+
 
 interface CoverProps {
     isOpen: boolean;
@@ -65,12 +67,11 @@ export default function Cover({ isOpen, setIsOpen }: CoverProps) {
 
                     {/* Cover Content */}
                     <div className="relative z-10 flex flex-col items-center">
-                        <h1 className="font-serif text-4xl text-rose-600 tracking-wider mb-2">For You</h1>
                         <div className="relative">
                             <Heart className="w-24 h-24 text-rose-500 fill-rose-500 animate-pulse" />
                         </div>
                         <p className="mt-8 text-sm text-rose-400 font-light tracking-widest uppercase flex items-center gap-2 opacity-80">
-                            <span>Click to Ohahapen</span>
+                            <span>Click to Open</span>
                         </p>
                     </div>
                 </div>
@@ -87,9 +88,18 @@ export default function Cover({ isOpen, setIsOpen }: CoverProps) {
                     {/* Inner Paper Gradient (Crease Shadow) */}
                     <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/5 to-transparent" />
 
-                    <div className="flex h-full items-center justify-center">
-                        <div className="text-center opacity-40 -rotate-3">
-                            <span className="font-serif italic text-rose-300 text-xl">Wigahgath Love</span>
+                    {/* Inner Content */}
+                    <div className="h-full flex flex-col items-center justify-center p-8 text-center bg-[#fff0f5]/30">
+                        <h2 className="font-serif text-2xl text-rose-800 mb-4">Happy Valentines</h2>
+                        <p className="font-['Montserrat',sans-serif] text-sm leading-relaxed text-gray-700 mb-8 whitespace-pre-line">
+                            It's the time of the year for the love of hearts but every single day still feels as special as today.
+                            {'\n'}
+                            I feel joy and excitement whenever I think of you and my spirit breaks with your absence.
+                            {'\n'}
+                            I hope you like my showcase of my work for you.
+                        </p>
+                        <div className="absolute bottom-4">
+                            <AnimatedRose />
                         </div>
                     </div>
                 </div>

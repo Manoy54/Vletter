@@ -1,0 +1,50 @@
+/* Telma - from Fontshare */
+@font-face {
+    font-family: 'Telma';
+    src: url('//cdn.fontshare.com/wf/UGIEST3H5PU4CG5IWQF2XDV4BQ4NHM55/MUA7JLTLK6QSMAPQJ4FACPICTYF4RSH5/ROMAJ4X7PNUGL2RNPOEGBQDZXD4WTUYJ.woff2') format('woff2'),
+        url('//cdn.fontshare.com/wf/UGIEST3H5PU4CG5IWQF2XDV4BQ4NHM55/MUA7JLTLK6QSMAPQJ4FACPICTYF4RSH5/ROMAJ4X7PNUGL2RNPOEGBQDZXD4WTUYJ.woff') format('woff'),
+        url('//cdn.fontshare.com/wf/UGIEST3H5PU4CG5IWQF2XDV4BQ4NHM55/MUA7JLTLK6QSMAPQJ4FACPICTYF4RSH5/ROMAJ4X7PNUGL2RNPOEGBQDZXD4WTUYJ.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Telma';
+    src: url('//cdn.fontshare.com/wf/Q4HSPVDYTOUBPOAOZYHPZVC7O2PGIO7Y/SO2ISBDOPZJKRB2HKMZUFXEIBL7Y7II5/5OD6IX4HNMWQSDBVZMNWTXDCHJXE3VSI.woff2') format('woff2'),
+        url('//cdn.fontshare.com/wf/Q4HSPVDYTOUBPOAOZYHPZVC7O2PGIO7Y/SO2ISBDOPZJKRB2HKMZUFXEIBL7Y7II5/5OD6IX4HNMWQSDBVZMNWTXDCHJXE3VSI.woff') format('woff'),
+        url('//cdn.fontshare.com/wf/Q4HSPVDYTOUBPOAOZYHPZVC7O2PGIO7Y/SO2ISBDOPZJKRB2HKMZUFXEIBL7Y7II5/5OD6IX4HNMWQSDBVZMNWTXDCHJXE3VSI.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Telma';
+    src: url('//cdn.fontshare.com/wf/5ZMY77XGX2TH2CZM4E5UML63QT425DC2/7XE5EXFOMF6YMHIPYY7ZL5M6GZCLRZJL/5P62Q5DLXFO236H3ENSXAF6IHACL2BRG.woff2') format('woff2'),
+        url('//cdn.fontshare.com/wf/5ZMY77XGX2TH2CZM4E5UML63QT425DC2/7XE5EXFOMF6YMHIPYY7ZL5M6GZCLRZJL/5P62Q5DLXFO236H3ENSXAF6IHACL2BRG.woff') format('woff'),
+        url('//cdn.fontshare.com/wf/5ZMY77XGX2TH2CZM4E5UML63QT425DC2/7XE5EXFOMF6YMHIPYY7ZL5M6GZCLRZJL/5P62Q5DLXFO236H3ENSXAF6IHACL2BRG.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Telma';
+    src: url('//cdn.fontshare.com/wf/NKBYZM3FLGWOHDM7WOIMZMHCI5D2TUUS/X3ZSFROUQWHD465VZRJEVARXK2DNN4JW/AI3UKUGMCTKRJM6W6ADNUKZAB4SUTBHO.woff2') format('woff2'),
+        url('//cdn.fontshare.com/wf/NKBYZM3FLGWOHDM7WOIMZMHCI5D2TUUS/X3ZSFROUQWHD465VZRJEVARXK2DNN4JW/AI3UKUGMCTKRJM6W6ADNUKZAB4SUTBHO.woff') format('woff'),
+        url('//cdn.fontshare.com/wf/NKBYZM3FLGWOHDM7WOIMZMHCI5D2TUUS/X3ZSFROUQWHD465VZRJEVARXK2DNN4JW/AI3UKUGMCTKRJM6W6ADNUKZAB4SUTBHO.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Telma';
+    src: url('//cdn.fontshare.com/wf/VQ57ZNBQ2K2YXQRCHK4QWNGTWWZYXGAV/4Y7INNLAI24BUKOGEQ6RSJZ2YQKOYCAN/OCZ75D7DJT3RZ3HASTXXIJQUT64HOFCT.woff2') format('woff2'),
+        url('//cdn.fontshare.com/wf/VQ57ZNBQ2K2YXQRCHK4QWNGTWWZYXGAV/4Y7INNLAI24BUKOGEQ6RSJZ2YQKOYCAN/OCZ75D7DJT3RZ3HASTXXIJQUT64HOFCT.woff') format('woff'),
+        url('//cdn.fontshare.com/wf/VQ57ZNBQ2K2YXQRCHK4QWNGTWWZYXGAV/4Y7INNLAI24BUKOGEQ6RSJZ2YQKOYCAN/OCZ75D7DJT3RZ3HASTXXIJQUT64HOFCT.ttf') format('truetype');
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal;
+}

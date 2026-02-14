@@ -14,27 +14,23 @@ const question = {
         "One day, Sean accidentally saw Sam’s Instagram account and realized she was in London. He contacted the Philippine National Police (PNP), and they arrested Sam to enforce repayment of her debt.",
         "After Sam returned to the Philippines, Sean forgave her past mistakes and, because he had secretly yearned for her all along, he fell in love with her. However, she was still required to pay interest on the loan.",
         "The original interest rate was 5% per month, but after forgiving her, Sean reduced it to 3% per month. Sam is now paying back after 2 years (24 months) of absence."
-    ],
-    options: [
-        "₱34,400",
-        "₱35,600",
-        "₱36,000",
-        "₱36,400"
-    ],
-    correctIndex: 0 // Option A
+    ]
 };
 
 export default function Quiz2({ onNext }: Quiz2Props) {
-    const [selected, setSelected] = useState<number | null>(null);
+    const [answer, setAnswer] = useState('');
     const [error, setError] = useState(false);
     const [showGif, setShowGif] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
 
-    // Correct index is 0 (Option A)
-    const CORRECT_INDEX = 0;
+    // Correct numeric answer is 34400
+    // (20,000 principal + (20,000 * 0.03 * 24) interest) = 20,000 + 14,400 = 34,400
 
     const handleSubmit = () => {
-        if (selected === CORRECT_INDEX) {
+        // Normalize answer: remove non-digits (except decimal point if any, but valid answer is integer here)
+        const numericAnswer = answer.replace(/[^0-9]/g, '');
+
+        if (numericAnswer === '34400') {
             setShowSuccess(true);
             setTimeout(() => {
                 onNext();
@@ -65,27 +61,18 @@ export default function Quiz2({ onNext }: Quiz2Props) {
                         </div>
                     </div>
 
-                    {/* Right Column: Options & Submit (Narrower) */}
+                    {/* Right Column: Input & Submit (Narrower) */}
                     <div className="lg:col-span-4 flex flex-col gap-6 w-full">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {question.options.map((opt, i) => (
-                                <motion.button
-                                    key={i}
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    onClick={() => setSelected(i)}
-                                    className={`w-full p-3 md:p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-center ${selected === i
-                                        ? 'bg-rose-50 text-rose-700 border-rose-500 shadow-md'
-                                        : 'bg-white/80 text-gray-600 border-gray-200 hover:border-rose-400'
-                                        }`}
-                                >
-                                    <span className={`w-8 h-8 shrink-0 rounded-full border-2 flex items-center justify-center mr-4 ${selected === i ? 'border-rose-500 bg-rose-500 text-white' : 'border-gray-400 text-gray-500'
-                                        } text-base md:text-lg`}>
-                                        {String.fromCharCode(65 + i)}
-                                    </span>
-                                    <span className="text-sm md:text-base">{opt}</span>
-                                </motion.button>
-                            ))}
+                        <div className="w-full">
+                            <input
+                                type="text"
+                                value={answer}
+                                onChange={(e) => setAnswer(e.target.value)}
+                                className="w-full p-4 rounded-xl border-2 border-gray-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 outline-none text-xl font-cabinet-bold text-gray-700 placeholder-gray-400 transition-all text-center"
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') handleSubmit();
+                                }}
+                            />
                         </div>
 
                         <AnimatePresence>
@@ -105,8 +92,8 @@ export default function Quiz2({ onNext }: Quiz2Props) {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={handleSubmit}
-                            disabled={selected === null}
-                            className={`w-full py-3 md:py-4 rounded-xl font-bold text-base md:text-lg transition-all shadow-md ${selected !== null
+                            disabled={!answer.trim()}
+                            className={`w-full py-3 md:py-4 rounded-xl font-bold text-base md:text-lg transition-all shadow-md ${answer.trim()
                                 ? 'bg-rose-600 text-white shadow-rose-200 hover:bg-rose-700'
                                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                                 }`}

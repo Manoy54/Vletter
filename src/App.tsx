@@ -5,7 +5,7 @@ import GalleryPage from './phases/Phase2/GalleryPage';
 import CardPage from './phases/Phase3/CardPage';
 
 export default function App() {
-  const [phase, setPhase] = useState(2);
+  const [phase, setPhase] = useState(1);
 
   return (
     <div className="w-full h-screen overflow-hidden bg-black/5 relative">
@@ -39,7 +39,7 @@ export default function App() {
             key="phase3"
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-full h-full flex items-center justify-center bg-[#f5f5f5]"
+            className="w-full h-full flex items-center justify-center bg-white"
           >
             <CardPage />
           </motion.div>
