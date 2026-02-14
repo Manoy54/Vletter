@@ -30,6 +30,15 @@ const FadeInSection: React.FC<{
 
 const IntroPage: React.FC<IntroPageProps> = ({ onComplete }) => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [noBtnPos, setNoBtnPos] = React.useState({ x: 0, y: 0 });
+
+    const moveNoButton = () => {
+        // Generate random position within a range relative to current position or origin
+        // Making it "run away"
+        const x = (Math.random() - 0.5) * 300;
+        const y = (Math.random() - 0.5) * 300;
+        setNoBtnPos({ x, y });
+    };
 
     // Smooth heavy scroll using lerp (linear interpolation)
     useEffect(() => {
@@ -121,7 +130,10 @@ const IntroPage: React.FC<IntroPageProps> = ({ onComplete }) => {
                             enableBlur
                             baseRotation={5}
                             blurStrength={10}
-                            textClassName="text-[clamp(2.5rem,5.5vw,5rem)] font-rouge-script text-center leading-[1.3] text-[#1a1a1a]"
+                            textClassName="text-[clamp(2.5rem,5.5vw,5rem)] font-telma text-center leading-[1.3] text-[#1a1a1a]"
+                            enableShiny
+                            shineColor="#ffaaaa"
+                            textColor="#1a1a1a"
                         >
                             Will you always be my Valentines?
                         </ScrollReveal>
@@ -157,44 +169,53 @@ const IntroPage: React.FC<IntroPageProps> = ({ onComplete }) => {
                             enableBlur
                             baseRotation={5}
                             blurStrength={10}
-                            textClassName="text-[clamp(3.5rem,7vw,6rem)] font-rouge-script text-center leading-[1.3] text-[#1a1a1a]"
+                            textClassName="text-[clamp(3.5rem,7vw,6rem)] font-telma text-center leading-[1.3] text-[#1a1a1a]"
+                            enableShiny
+                            shineColor="#ffaaaa"
+                            textColor="#1a1a1a"
                         >
                             Manligaw ?
                         </ScrollReveal>
                     </div>
 
-                    <div className="flex gap-6 items-center justify-center w-full px-4">
-                        <motion.button
+                    <div className="flex gap-6 items-center justify-center w-full px-4 relative h-20">
+                        {/* YES Button Wrapper for Entry Animation */}
+                        <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ root: containerRef, margin: "-50px" }}
                             transition={{ duration: 0.8, delay: 0.3 }}
-                            onClick={onComplete}
-                            className="w-32 md:w-40 py-3 bg-[#CD5C5C] text-white font-bold text-lg md:text-xl rounded shadow-md hover:bg-[#b04545] active:scale-95 transition-all cursor-pointer"
                         >
-                            YES
-                        </motion.button>
+                            <motion.button
+                                animate={{ x: [0, -4, 4, -4, 4, 0] }}
+                                transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 1.5, ease: "easeInOut" }}
+                                whileHover={{ scale: 1.1, boxShadow: "0 0 25px rgba(205,92,92,1)" }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={onComplete}
+                                className="w-32 md:w-40 py-3 bg-[#CD5C5C] text-white font-bold text-lg md:text-xl rounded shadow-[0_0_15px_rgba(205,92,92,0.5)] cursor-pointer z-10"
+                            >
+                                YES
+                            </motion.button>
+                        </motion.div>
 
-                        <motion.button
+                        {/* NO Button Wrapper for Entry Animation */}
+                        <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ root: containerRef, margin: "-50px" }}
                             transition={{ duration: 0.8, delay: 0.5 }}
-                            className="w-32 md:w-40 py-3 bg-white text-black border border-gray-300 font-bold text-lg md:text-xl rounded shadow-sm hover:bg-gray-50 active:scale-95 transition-all cursor-pointer"
-                            onClick={(e) => {
-                                const btn = e.currentTarget;
-                                btn.animate([
-                                    { transform: 'translateX(0)' },
-                                    { transform: 'translateX(-10px)' },
-                                    { transform: 'translateX(10px)' },
-                                    { transform: 'translateX(-8px)' },
-                                    { transform: 'translateX(8px)' },
-                                    { transform: 'translateX(0)' }
-                                ], { duration: 500 });
-                            }}
                         >
-                            NO
-                        </motion.button>
+                            <motion.button
+                                animate={{ x: noBtnPos.x, y: noBtnPos.y }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="w-32 md:w-40 py-3 bg-white text-black border border-gray-300 font-bold text-lg md:text-xl rounded shadow-sm hover:bg-gray-50 cursor-pointer z-10 block"
+                                onClick={moveNoButton}
+                                onMouseEnter={moveNoButton}
+                            >
+                                NO
+                            </motion.button>
+                        </motion.div>
                     </div>
                 </FadeInSection>
             </div>

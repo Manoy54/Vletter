@@ -175,8 +175,8 @@ export default function CardPage() {
 
             <motion.div
                 className="relative w-[1480px] h-[1000px] flex-none z-10"
-                animate={isOpen ? { x: 136, y: 0, rotate: 0, scale: 1.5 } : { x: 0, y: [0, -20, 0], rotate: [0, 1, -1, 0], scale: 1.5 }}
-                initial={{ scale: 1.5 }}
+                animate={isOpen ? { x: 136, y: 0, rotate: 0, scale: 1.125 } : { x: 0, y: [0, -20, 0], rotate: [0, 1, -1, 0], scale: 1.125 }}
+                initial={{ scale: 1.125 }}
                 transition={isOpen ? { duration: 0.5 } : {
                     duration: 3,
                     ease: "easeInOut",

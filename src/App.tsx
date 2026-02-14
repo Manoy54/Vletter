@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import IntroPage from './phases/Intro/IntroPage';
+import ReminderPage from './phases/Intro/ReminderPage';
 import QuizPage from './phases/Phase1/QuizPage';
 import GalleryPage from './phases/Phase2/GalleryPage';
 import CardPage from './phases/Phase3/CardPage';
@@ -19,7 +20,19 @@ export default function App() {
             exit={{ opacity: 0 }}
             className="w-full h-full"
           >
-            <IntroPage onComplete={() => setPhase(1)} />
+            <IntroPage onComplete={() => setPhase(0.5)} />
+          </motion.div>
+        )}
+
+        {phase === 0.5 && (
+          <motion.div
+            key="reminder"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="w-full h-full"
+          >
+            <ReminderPage onComplete={() => setPhase(1)} />
           </motion.div>
         )}
 

@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useMemo, ReactNode, RefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import ShinyText from './ShinyText';
 
 interface ScrollRevealProps {
     children: ReactNode;
@@ -15,6 +14,9 @@ interface ScrollRevealProps {
     textClassName?: string;
     rotationEnd?: string;
     wordAnimationEnd?: string;
+    enableShiny?: boolean;
+    shineColor?: string;
+    textColor?: string;
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -27,7 +29,10 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     containerClassName = '',
     textClassName = '',
     rotationEnd = 'bottom bottom',
-    wordAnimationEnd = 'bottom bottom'
+    wordAnimationEnd = 'bottom bottom',
+    enableShiny = false,
+    shineColor = '#ffffff',
+    textColor = '#000000'
 }) => {
     const containerRef = useRef<HTMLHeadingElement>(null);
 
@@ -35,13 +40,25 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         const text = typeof children === 'string' ? children : '';
         return text.split(/(\s+)/).map((word, index) => {
             if (word.match(/^\s+$/)) return word;
+            if (enableShiny) {
+                return (
+                    <ShinyText
+                        key={index}
+                        text={word}
+                        className="word"
+                        color={textColor}
+                        shineColor={shineColor}
+                        speed={3}
+                    />
+                );
+            }
             return (
                 <span className="inline-block word" key={index}>
                     {word}
                 </span>
             );
         });
-    }, [children]);
+    }, [children, enableShiny, shineColor]);
 
     useEffect(() => {
         const el = containerRef.current;
