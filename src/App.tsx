@@ -1,15 +1,28 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import IntroPage from './phases/Intro/IntroPage';
 import QuizPage from './phases/Phase1/QuizPage';
 import GalleryPage from './phases/Phase2/GalleryPage';
 import CardPage from './phases/Phase3/CardPage';
 
 export default function App() {
-  const [phase, setPhase] = useState(1);
+  const [phase, setPhase] = useState(0);
 
   return (
     <div className="w-full h-screen overflow-hidden bg-black/5 relative">
       <AnimatePresence mode="wait">
+        {phase === 0 && (
+          <motion.div
+            key="intro"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="w-full h-full"
+          >
+            <IntroPage onComplete={() => setPhase(1)} />
+          </motion.div>
+        )}
+
         {phase === 1 && (
           <motion.div
             key="phase1"

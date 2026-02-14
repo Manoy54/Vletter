@@ -2,10 +2,17 @@
 @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,400,300,100,200,900&display=swap');
 
 @import url('https://api.fontshare.com/v2/css?f[]=telma@100,300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap');
 @import './assets/fonts/fonts.css';
 
 .font-telma {
   font-family: 'Telma', serif;
+}
+
+.font-rouge-script {
+  font-family: 'Rouge Script', cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @layer base {
@@ -93,4 +100,10 @@
 .font-cabinet-black {
   font-family: 'CabinetGrotesk-Black', 'Cabinet Grotesk', sans-serif;
   font-weight: 900;
+}
+
+.playwrite-cu-guides-regular {
+  font-family: "Playwrite CU Guides", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
